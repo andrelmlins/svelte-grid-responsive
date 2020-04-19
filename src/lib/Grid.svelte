@@ -19,7 +19,7 @@
     } else {
       styleGeneral = createStyleSize();
 
-      if (styleGeneral) {
+      if (xs || sm || md || lg || xl) {
         styleGeneral += `--colFlexSGR:0;`;
       } else {
         styleGeneral = `--colFlexSGR:1;`;
