@@ -38,19 +38,19 @@
   const createStyleSize = () => {
     let newStyle = "";
 
-    newStyle += xs ? `--xsWidth:${getValue(xs)}; ` : "";
-    newStyle += sm ? `--smWidth:${getValue(sm)}; ` : "";
-    newStyle += md ? `--mdWidth:${getValue(md)}; ` : "";
-    newStyle += lg ? `--lgWidth:${getValue(lg)}; ` : "";
-    newStyle += xl ? `--xlWidth:${getValue(xl)}; ` : "";
+    newStyle += xs ? `--xsWidthSGR:${getValue(xs)}; ` : "";
+    newStyle += sm ? `--smWidthSGR:${getValue(sm)}; ` : "";
+    newStyle += md ? `--mdWidthSGR:${getValue(md)}; ` : "";
+    newStyle += lg ? `--lgWidthSGR:${getValue(lg)}; ` : "";
+    newStyle += xl ? `--xlWidthSGR:${getValue(xl)}; ` : "";
 
     return newStyle;
   };
 
   const createGutter = () => {
     return gutter
-      ? `--padding:${gutter / 2}px;--margin:-${gutter / 2}px`
-      : "--padding:0;--margin:0";
+      ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px`
+      : "--paddingSGR:0;--marginSGR:0";
   };
 </script>
 
@@ -59,44 +59,44 @@
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    width: calc(100% + (var(--padding) * 2));
-    margin: var(--margin);
+    width: calc(100% + (var(--paddingSGR) * 2));
+    margin: var(--marginSGR);
   }
 
   .col {
     position: relative;
     box-sizing: border-box;
-    padding: var(--padding);
+    padding: var(--paddingSGR);
   }
   .col-xs {
-    flex-basis: var(--xsWidth);
-    max-width: var(--xsWidth);
+    flex-basis: var(--xsWidthSGR);
+    max-width: var(--xsWidthSGR);
   }
 
   @media (min-width: 576px) {
     .col-sm {
-      flex-basis: var(--smWidth);
-      max-width: var(--smWidth);
+      flex-basis: var(--smWidthSGR);
+      max-width: var(--smWidthSGR);
     }
   }
 
   @media (min-width: 768px) {
     .col-md {
-      flex-basis: var(--mdWidth);
-      max-width: var(--mdWidth);
+      flex-basis: var(--mdWidthSGR);
+      max-width: var(--mdWidthSGR);
     }
   }
 
   @media (min-width: 992px) {
     .col-lg {
-      flex-basis: var(--lgWidth);
-      max-width: var(--lgWidth);
+      flex-basis: var(--lgWidthSGR);
+      max-width: var(--lgWidthSGR);
     }
   }
 
   @media (min-width: 1200px) {
     .col-xl {
-      max-width: var(--xlWidth);
+      max-width: var(--xlWidthSGR);
     }
   }
 </style>
