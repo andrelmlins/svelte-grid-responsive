@@ -2,6 +2,51 @@
   import Grid from "../lib/Grid.svelte";
 </script>
 
-<main>
-  <Grid xs={12} md={4} lg={2}>Teste</Grid>
-</main>
+<style>
+  div {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: red;
+    color: white;
+  }
+</style>
+
+<Grid container>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
+    <div>Coluna</div>
+  </Grid>
+</Grid>

@@ -1,26 +1,26 @@
 <script>
-  export let container;
-  export let xs;
-  export let sm;
-  export let md;
-  export let lg;
-  export let xl;
+  export let container = false;
+  export let gutter = 0;
+  export let xs = false;
+  export let sm = false;
+  export let md = false;
+  export let lg = false;
+  export let xl = false;
 
   let classGeneral = "";
   let styleGeneral = "";
   let spacing = 10;
 
   $: {
-    console.log("entrou");
-    classGeneral = createClass();
-    styleGeneral = createStyle();
+    classGeneral = container ? "container" : `col ${createClassSize()}`;
+    styleGeneral = createStyleSize();
   }
 
   const getValue = breakpoint => {
     return breakpoint ? `${(breakpoint / 12) * 100}%` : false;
   };
 
-  const createClass = () => {
+  const createClassSize = () => {
     let newClass = "";
 
     newClass += xs ? "col-xs " : "";
@@ -28,11 +28,11 @@
     newClass += md ? "col-md " : "";
     newClass += lg ? "col-lg " : "";
     newClass += xl ? "col-xl " : "";
-    console.log(newClass);
+
     return newClass;
   };
 
-  const createStyle = () => {
+  const createStyleSize = () => {
     let newStyle = "";
 
     newStyle += xs ? `--xsWidth:${getValue(xs)}; ` : "";
@@ -46,20 +46,46 @@
 </script>
 
 <style>
+  .container {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .col {
+    position: relative;
+  }
   .col-xs {
+    flex-basis: var(--xsWidth);
     max-width: var(--xsWidth);
   }
-  .col-sm {
-    max-width: var(--smWidth);
+
+  @media (min-width: 576px) {
+    .col-sm {
+      flex-basis: var(--smWidth);
+      max-width: var(--smWidth);
+    }
   }
-  .col-md {
-    max-width: var(--mdWidth);
+
+  @media (min-width: 768px) {
+    .col-md {
+      flex-basis: var(--mdWidth);
+      max-width: var(--mdWidth);
+    }
   }
-  .col-lg {
-    max-width: var(--lgWidth);
+
+  @media (min-width: 992px) {
+    .col-lg {
+      flex-basis: var(--lgWidth);
+      max-width: var(--lgWidth);
+    }
   }
-  .col-xl {
-    max-width: var(--xlWidth);
+
+  @media (min-width: 1200px) {
+    .col-xl {
+      max-width: var(--xlWidth);
+    }
   }
 </style>
 
