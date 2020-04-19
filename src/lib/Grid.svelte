@@ -1,6 +1,6 @@
 <script>
   export let container = false;
-  export let gutter = 0;
+  export let gutter = false;
   export let xs = false;
   export let sm = false;
   export let md = false;
@@ -14,6 +14,9 @@
   $: {
     classGeneral = container ? "container" : `col ${createClassSize()}`;
     styleGeneral = createStyleSize();
+    if (container) {
+      styleGeneral += createGutter();
+    }
   }
 
   const getValue = breakpoint => {
@@ -43,6 +46,12 @@
 
     return newStyle;
   };
+
+  const createGutter = () => {
+    return gutter
+      ? `--padding:${gutter / 2}px;--margin:-${gutter / 2}px`
+      : "--padding:0;--margin:0";
+  };
 </script>
 
 <style>
@@ -50,11 +59,14 @@
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: calc(100% + (var(--padding) * 2));
+    margin: var(--margin);
   }
 
   .col {
     position: relative;
+    box-sizing: border-box;
+    padding: var(--padding);
   }
   .col-xs {
     flex-basis: var(--xsWidth);

@@ -12,7 +12,7 @@
   }
 </style>
 
-<Grid container>
+<Grid container gutter={24}>
   <Grid xs={12} sm={6} md={3} lg={2} xl={1}>
     <div>Coluna</div>
   </Grid>
