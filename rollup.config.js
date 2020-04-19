@@ -38,12 +38,12 @@ export default [
     }
   },
   {
-    input: "src/lib/GridResponsive.svelte",
+    input: "src/lib/Grid.svelte",
     output: { file: pkg.main, format: "umd", name: "GridResponsive" },
     plugins: [svelte(), resolve(), commonjs()]
   },
   {
-    input: "src/lib/GridResponsive.svelte",
+    input: "src/lib/Grid.svelte",
     output: { file: pkg.module, format: "es" },
     external: ["svelte/internal"],
     plugins: [svelte(), commonjs()]
