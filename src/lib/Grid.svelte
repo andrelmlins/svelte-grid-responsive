@@ -13,6 +13,7 @@
 
   $: {
     classGeneral = container ? "container" : `col ${createClassSize()}`;
+
     if (container) {
       styleGeneral = createGutter();
     } else {
@@ -31,9 +32,8 @@
   };
 
   const createClassSize = () => {
-    let newClass = "";
+    let newClass = "col-xs ";
 
-    newClass += xs ? "col-xs " : "";
     newClass += sm ? "col-sm " : "";
     newClass += md ? "col-md " : "";
     newClass += lg ? "col-lg " : "";
@@ -45,7 +45,7 @@
   const createStyleSize = () => {
     let newStyle = "";
 
-    newStyle += xs ? `--xsWidthSGR:${getValue(xs)}; ` : "";
+    newStyle += xs ? `--xsWidthSGR:${getValue(xs)}; ` : `--xsWidthSGR:100%; `;
     newStyle += sm ? `--smWidthSGR:${getValue(sm)}; ` : "";
     newStyle += md ? `--mdWidthSGR:${getValue(md)}; ` : "";
     newStyle += lg ? `--lgWidthSGR:${getValue(lg)}; ` : "";
