@@ -13,9 +13,10 @@
 
   $: {
     classGeneral = container ? "container" : `col ${createClassSize()}`;
-    styleGeneral = createStyleSize();
     if (container) {
-      styleGeneral += createGutter();
+      styleGeneral = createGutter();
+    } else {
+      styleGeneral = createStyleSize();
     }
   }
 
