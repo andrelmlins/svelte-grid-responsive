@@ -17,6 +17,12 @@
       styleGeneral = createGutter();
     } else {
       styleGeneral = createStyleSize();
+
+      if (styleGeneral) {
+        styleGeneral += `--colFlexSGR:0;`;
+      } else {
+        styleGeneral = `--colFlexSGR:1;`;
+      }
     }
   }
 
@@ -67,6 +73,7 @@
   .col {
     position: relative;
     box-sizing: border-box;
+    flex-grow: var(--colFlexSGR);
     padding: var(--paddingSGR);
   }
   .col-xs {
