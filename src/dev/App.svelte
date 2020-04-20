@@ -9,6 +9,10 @@
     color: #263238;
   }
 
+  h1 {
+    margin-top: 0;
+  }
+
   div {
     width: 100%;
   }
@@ -35,7 +39,10 @@
 </style>
 
 <main>
-  <h1>Svelte Grid Responsive</h1>
+  <h1>
+    Svelte Grid Responsive
+    <small>(Responsive grid system based on Bootstrap for Svelte)</small>
+  </h1>
   <br />
   <h2>Without define sizes</h2>
   <div class="card">
@@ -70,7 +77,7 @@
       </Grid>
     </div>
   </div>
-  <h4>Specifying sizes</h4>
+  <h2>Specifying sizes</h2>
   <div class="card">
     <Grid container gutter={12}>
       <Grid xs={12} md={4} lg={3}>
@@ -102,7 +109,7 @@
       </Grid>
     </Grid>
   </div>
-  <h4>Setting columns count</h4>
+  <h2>Setting columns count</h2>
   <div class="card">
     <Grid container gutter={12} columns={10}>
       <Grid xs={10} md={5} lg={2}>
@@ -131,7 +138,7 @@
       </Grid>
     </Grid>
   </div>
-  <h4>Changing gutter</h4>
+  <h2>Changing gutter</h2>
   <div class="card">
     <Grid container gutter={50}>
       <Grid xs={12} md={4} lg={3}>

@@ -1,6 +1,6 @@
 {
   "name": "svelte-grid-responsive",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Responsive grid system based on Bootstrap for Svelte",
   "repository": "https://github.com/andrelmlins/svelte-grid-responsive",
   "author": "André Lins <andrelucas01@hotmail.com> (https://andrelmlins.github.io/)",
@@ -11,7 +11,7 @@
   "homepage": "https://svelte-grid-responsive.netlify.com/",
   "private": false,
   "files": [
-    "src/lib/Grid.svelte",
+    "src/lib",
     "dist",
     "README.md"
   ],

@@ -57,6 +57,7 @@ Component props:
 | --------- | ------- | ------ | --------------------------------------- |
 | container | false   | bool   | Defines whether the grid is a container |
 | gutter    | false   | number | Grid spacing in the container           |
+| columns   | 12      | number | Setting columns count in the container  |
 | xs        | false   | number | Size in extra small screen              |
 | sm        | false   | number | Size in small screen                    |
 | md        | false   | number | Size in medium screen                   |
