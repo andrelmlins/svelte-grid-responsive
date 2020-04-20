@@ -36,6 +36,8 @@
 
 <main>
   <h1>Svelte Grid Responsive</h1>
+  <br />
+  <h2>Without define sizes</h2>
   <div class="card">
     <div>
       <Grid container gutter={12}>
@@ -68,37 +70,82 @@
       </Grid>
     </div>
   </div>
+  <h4>Specifying sizes</h4>
   <div class="card">
-    <div>
-      <Grid container gutter={12}>
-        <Grid xs={12} md={4} lg={3}>
-          <div class="col">xs=12 md=4 lg=3</div>
-        </Grid>
-        <Grid xs={12} md={4} lg={3}>
-          <div class="col">xs=12 md=4 lg=3</div>
-        </Grid>
-        <Grid xs={12} md={4} lg={3}>
-          <div class="col">xs=12 md=4 lg=3</div>
-        </Grid>
-        <Grid xs={12} md={4} lg={3}>
-          <div class="col">xs=12 md=4 lg=3</div>
-        </Grid>
-        <Grid xs={12} lg={6}>
-          <div class="col">xs=12 lg=6</div>
-        </Grid>
-        <Grid xs={12} lg={6}>
-          <div class="col">xs=12 lg=6</div>
-        </Grid>
-        <Grid lg={4}>
-          <div class="col">lg=4</div>
-        </Grid>
-        <Grid lg={4}>
-          <div class="col">lg=4</div>
-        </Grid>
-        <Grid lg={4}>
-          <div class="col">lg=4</div>
-        </Grid>
+    <Grid container gutter={12}>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
       </Grid>
-    </div>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} lg={6}>
+        <div class="col">xs=12 lg=6</div>
+      </Grid>
+      <Grid xs={12} lg={6}>
+        <div class="col">xs=12 lg=6</div>
+      </Grid>
+      <Grid lg={4}>
+        <div class="col">lg=4</div>
+      </Grid>
+      <Grid lg={4}>
+        <div class="col">lg=4</div>
+      </Grid>
+      <Grid lg={4}>
+        <div class="col">lg=4</div>
+      </Grid>
+    </Grid>
+  </div>
+  <h4>Setting columns count</h4>
+  <div class="card">
+    <Grid container gutter={12} columns={10}>
+      <Grid xs={10} md={5} lg={2}>
+        <div class="col">xs=10 md=5 lg=2</div>
+      </Grid>
+      <Grid xs={10} md={5} lg={2}>
+        <div class="col">xs=10 md=5 lg=2</div>
+      </Grid>
+      <Grid xs={10} md={5} lg={2}>
+        <div class="col">xs=10 md=5 lg=2</div>
+      </Grid>
+      <Grid xs={10} md={5} lg={2}>
+        <div class="col">xs=10 md=5 lg=2</div>
+      </Grid>
+      <Grid xs={10} md={5} lg={2}>
+        <div class="col">xs=10 md=5 lg=2</div>
+      </Grid>
+      <Grid xs={10} lg={3}>
+        <div class="col">xs=10 lg=3</div>
+      </Grid>
+      <Grid xs={10} lg={4}>
+        <div class="col">xs=10 lg=4</div>
+      </Grid>
+      <Grid xs={10} lg={3}>
+        <div class="col">xs=10 lg=3</div>
+      </Grid>
+    </Grid>
+  </div>
+  <h4>Changing gutter</h4>
+  <div class="card">
+    <Grid container gutter={50}>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+      <Grid xs={12} md={4} lg={3}>
+        <div class="col">xs=12 md=4 lg=3</div>
+      </Grid>
+    </Grid>
   </div>
 </main>

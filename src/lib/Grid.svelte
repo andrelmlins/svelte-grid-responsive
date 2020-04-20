@@ -1,6 +1,10 @@
 <script>
+  import { onDestroy } from "svelte";
+  import { columnsStore } from "./stores.js";
+
   export let container = false;
   export let gutter = false;
+  export let columns = 12;
   export let xs = false;
   export let sm = false;
   export let md = false;
@@ -11,11 +15,16 @@
   let styleGeneral = "";
   let spacing = 10;
 
+  let localColumns;
+
+  const unsubscribe = columnsStore.subscribe(value => (localColumns = value));
+
   $: {
     classGeneral = container ? "container" : `col ${createClassSize()}`;
 
     if (container) {
       styleGeneral = createGutter();
+      columnsStore.update(() => columns);
     } else {
       styleGeneral = createStyleSize();
 
@@ -28,7 +37,11 @@
   }
 
   const getValue = breakpoint => {
-    return breakpoint ? `${(breakpoint / 12) * 100}%` : false;
+    if (breakpoint > localColumns) {
+      breakpoint = localColumns;
+    }
+
+    return breakpoint ? `${(breakpoint / localColumns) * 100}%` : false;
   };
 
   const createClassSize = () => {
@@ -59,6 +72,8 @@
       ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px`
       : "--paddingSGR:0;--marginSGR:0";
   };
+
+  onDestroy(() => unsubscribe());
 </script>
 
 <style>
