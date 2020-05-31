@@ -1,6 +1,6 @@
 <script>
-  import { onDestroy } from "svelte";
-  import { columnsStore } from "./stores.js";
+  import { onDestroy } from 'svelte';
+  import { columnsStore } from './stores.js';
 
   export let container = false;
   export let gutter = false;
@@ -11,16 +11,15 @@
   export let lg = false;
   export let xl = false;
 
-  let classGeneral = "";
-  let styleGeneral = "";
-  let spacing = 10;
+  let classGeneral = '';
+  let styleGeneral = '';
 
   let localColumns;
 
   const unsubscribe = columnsStore.subscribe(value => (localColumns = value));
 
   $: {
-    classGeneral = container ? "container" : `col ${createClassSize()}`;
+    classGeneral = container ? 'container' : `col ${createClassSize()}`;
 
     if (container) {
       styleGeneral = createGutter();
@@ -45,24 +44,24 @@
   };
 
   const createClassSize = () => {
-    let newClass = "col-xs ";
+    let newClass = 'col-xs ';
 
-    newClass += sm ? "col-sm " : "";
-    newClass += md ? "col-md " : "";
-    newClass += lg ? "col-lg " : "";
-    newClass += xl ? "col-xl " : "";
+    newClass += sm ? 'col-sm ' : '';
+    newClass += md ? 'col-md ' : '';
+    newClass += lg ? 'col-lg ' : '';
+    newClass += xl ? 'col-xl ' : '';
 
     return newClass;
   };
 
   const createStyleSize = () => {
-    let newStyle = "";
+    let newStyle = '';
 
     newStyle += xs ? `--xsWidthSGR:${getValue(xs)}; ` : `--xsWidthSGR:100%; `;
-    newStyle += sm ? `--smWidthSGR:${getValue(sm)}; ` : "";
-    newStyle += md ? `--mdWidthSGR:${getValue(md)}; ` : "";
-    newStyle += lg ? `--lgWidthSGR:${getValue(lg)}; ` : "";
-    newStyle += xl ? `--xlWidthSGR:${getValue(xl)}; ` : "";
+    newStyle += sm ? `--smWidthSGR:${getValue(sm)}; ` : '';
+    newStyle += md ? `--mdWidthSGR:${getValue(md)}; ` : '';
+    newStyle += lg ? `--lgWidthSGR:${getValue(lg)}; ` : '';
+    newStyle += xl ? `--xlWidthSGR:${getValue(xl)}; ` : '';
 
     return newStyle;
   };
@@ -70,7 +69,7 @@
   const createGutter = () => {
     return gutter
       ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px`
-      : "--paddingSGR:0;--marginSGR:0";
+      : '--paddingSGR:0;--marginSGR:0';
   };
 
   onDestroy(() => unsubscribe());
