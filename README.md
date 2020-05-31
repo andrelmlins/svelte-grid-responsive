@@ -21,7 +21,7 @@ Local demo:
 ```
 git clone https://github.com/andrelmlins/svelte-grid-responsive.git
 cd svelte-grid-responsive
-yarn && yarn start
+npm && npm run dev
 ```
 
 ## Examples
