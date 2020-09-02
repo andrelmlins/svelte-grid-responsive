@@ -37,7 +37,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "sirv-cli": "^1.0.0",
     "svelte": "^3.24.0",
-    "svelte-jester": "^1.1.2"
+    "svelte-jester": "^1.1.0"
   },
   "bugs": {
     "url": "https://github.com/andrelmlins/svelte-grid-responsive/issues"
