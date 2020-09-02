@@ -55,13 +55,7 @@
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": [
-        "svelte-jester",
-        {
-          "preprocess": false,
-          "debug": false,
-          "compilerOptions": {},
-          "rootMode": ""
-        }
+        "svelte-jester"
       ]
     },
     "moduleFileExtensions": [
