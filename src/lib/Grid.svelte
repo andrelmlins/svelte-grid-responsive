@@ -1,22 +1,24 @@
-<script>
+<script lang="ts">
   import { onDestroy } from 'svelte';
   import { columnsStore } from './stores.js';
 
-  export let container = false;
-  export let gutter = false;
-  export let columns = 12;
-  export let xs = false;
-  export let sm = false;
-  export let md = false;
-  export let lg = false;
-  export let xl = false;
+  type GridSizeType = number | false | null;
 
-  let classGeneral = '';
-  let styleGeneral = '';
+  export let container: boolean = false;
+  export let columns: number = 12;
+  export let gutter: GridSizeType = false;
+  export let xs: GridSizeType = false;
+  export let sm: GridSizeType = false;
+  export let md: GridSizeType = false;
+  export let lg: GridSizeType = false;
+  export let xl: GridSizeType = false;
 
-  let localColumns;
+  let classGeneral: string = '';
+  let styleGeneral: string = '';
 
-  const unsubscribe = columnsStore.subscribe(value => (localColumns = value));
+  let localColumns: number;
+
+  const unsubscribe = columnsStore.subscribe((value) => (localColumns = value));
 
   $: {
     classGeneral = container ? 'container' : `col ${createClassSize()}`;
@@ -35,7 +37,7 @@
     }
   }
 
-  const getValue = breakpoint => {
+  const getValue = (breakpoint: number) => {
     if (breakpoint > localColumns) {
       breakpoint = localColumns;
     }
@@ -74,6 +76,10 @@
 
   onDestroy(() => unsubscribe());
 </script>
+
+<div style={styleGeneral} class={classGeneral}>
+  <slot />
+</div>
 
 <style>
   .container {
@@ -122,7 +128,3 @@
     }
   }
 </style>
-
-<div style={styleGeneral} class={classGeneral}>
-  <slot />
-</div>

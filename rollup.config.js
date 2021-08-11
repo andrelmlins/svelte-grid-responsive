@@ -3,13 +3,16 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import typescript from "@rollup/plugin-typescript";
+import autoPreprocess from "svelte-preprocess";
+import svelteDts from "svelte-dts";
 import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default [
   {
-    input: 'src/dev/main.js',
+    input: 'src/dev/main.ts',
     output: {
       sourcemap: true,
       format: 'iife',
@@ -19,8 +22,10 @@ export default [
     plugins: [
       svelte({
         dev: !production,
-        css: (css) => css.write('bundle.css'),
+        css: (css) => css.write("bundle.css"),
+        preprocess: autoPreprocess(),
       }),
+      typescript({ sourceMap: !production }),
       resolve({
         browser: true,
         dedupe: (importee) =>
@@ -36,13 +41,23 @@ export default [
   {
     input: 'src/lib/Grid.svelte',
     output: { file: pkg.main, format: 'umd', name: 'GridResponsive' },
-    plugins: [svelte(), resolve(), commonjs()],
+    plugins: [
+      svelte({ preprocess: autoPreprocess() }),
+      typescript({ sourceMap: !production }),
+      resolve(),
+      commonjs(),
+    ],
   },
   {
     input: 'src/lib/Grid.svelte',
     output: { file: pkg.module, format: 'es' },
     external: ['svelte/internal'],
-    plugins: [svelte(), commonjs()],
+    plugins: [
+      svelteDts({ output: pkg.types }),
+      svelte({ preprocess: autoPreprocess() }),
+      typescript({ sourceMap: !production }),
+      commonjs(),
+    ],
   },
 ];
 
