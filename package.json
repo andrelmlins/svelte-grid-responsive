@@ -44,6 +44,7 @@
     "svelte-jester": "1.1.5",
     "svelte-preprocess": "^4.7.4",
     "svelte-transpile-typescript": "^0.1.2",
+    "ts-jest": "^27.0.4",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
