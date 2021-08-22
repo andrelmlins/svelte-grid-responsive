@@ -1,124 +1,26 @@
 <script lang="ts">
+  import theme from 'svelte-highlight/src/styles/dracula.js';
   import Grid from '../lib/Grid.svelte';
+  import WithoutSizes from './examples/WithoutSizes.svelte';
+  import SpecifyingSizes from './examples/SpecifyingSizes.svelte';
+  import SettingColumnsCount from './examples/SettingColumnsCount.svelte';
+  import ColumnOrdering from './examples/ColumnOrdering.svelte';
+  import ChangingGutter from './examples/ChangingGutter.svelte';
 </script>
 
+<svelte:head>
+  {@html theme}
+</svelte:head>
+
 <main>
-  <h1>
-    Svelte Grid Responsive
-    <small>(Responsive grid system based on Bootstrap for Svelte)</small>
-  </h1>
+  <h1>Svelte Grid Responsive</h1>
+  <h3>Responsive grid system based on Bootstrap for Svelte</h3>
   <br />
-  <h2>Without define sizes</h2>
-  <div class="card">
-    <div>
-      <Grid container gutter={12}>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-      </Grid>
-      <Grid container gutter={12}>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-        <Grid>
-          <div class="col">col</div>
-        </Grid>
-      </Grid>
-    </div>
-  </div>
-  <h2>Specifying sizes</h2>
-  <div class="card">
-    <Grid container gutter={12}>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} lg={6}>
-        <div class="col">xs=12 lg=6</div>
-      </Grid>
-      <Grid xs={12} lg={6}>
-        <div class="col">xs=12 lg=6</div>
-      </Grid>
-      <Grid lg={4}>
-        <div class="col">lg=4</div>
-      </Grid>
-      <Grid lg={4}>
-        <div class="col">lg=4</div>
-      </Grid>
-      <Grid lg={4}>
-        <div class="col">lg=4</div>
-      </Grid>
-    </Grid>
-  </div>
-  <h2>Setting columns count</h2>
-  <div class="card">
-    <Grid container gutter={12} columns={10}>
-      <Grid xs={10} md={5} lg={2}>
-        <div class="col">xs=10 md=5 lg=2</div>
-      </Grid>
-      <Grid xs={10} md={5} lg={2}>
-        <div class="col">xs=10 md=5 lg=2</div>
-      </Grid>
-      <Grid xs={10} md={5} lg={2}>
-        <div class="col">xs=10 md=5 lg=2</div>
-      </Grid>
-      <Grid xs={10} md={5} lg={2}>
-        <div class="col">xs=10 md=5 lg=2</div>
-      </Grid>
-      <Grid xs={10} md={5} lg={2}>
-        <div class="col">xs=10 md=5 lg=2</div>
-      </Grid>
-      <Grid xs={10} lg={3}>
-        <div class="col">xs=10 lg=3</div>
-      </Grid>
-      <Grid xs={10} lg={4}>
-        <div class="col">xs=10 lg=4</div>
-      </Grid>
-      <Grid xs={10} lg={3}>
-        <div class="col">xs=10 lg=3</div>
-      </Grid>
-    </Grid>
-  </div>
-  <h2>Changing gutter</h2>
-  <div class="card">
-    <Grid container gutter={50}>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-      <Grid xs={12} md={4} lg={3}>
-        <div class="col">xs=12 md=4 lg=3</div>
-      </Grid>
-    </Grid>
-  </div>
+  <WithoutSizes />
+  <SpecifyingSizes />
+  <SettingColumnsCount />
+  <ColumnOrdering />
+  <ChangingGutter />
 </main>
 
 <style>
@@ -132,20 +34,19 @@
     margin-top: 0;
   }
 
-  div {
-    width: 100%;
-  }
-  .card {
-    display: flex;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-    border-radius: 2px;
+  :global(.card) {
+    display: block;
+    border-radius: 4px 4px 0px 0px;
     background-color: white;
     box-sizing: border-box;
-    padding: 12px;
-    margin-bottom: 38px;
+    padding: 24px;
   }
-  .col {
+
+  :global(.card) > div {
+    width: 100%;
+  }
+
+  :global(.col) {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -154,5 +55,13 @@
     border: 1px solid #263238;
     text-align: center;
     font-size: 14pt;
+  }
+
+  :global(pre) {
+    margin-top: 0;
+    margin-bottom: 38px;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   }
 </style>

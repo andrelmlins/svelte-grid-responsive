@@ -12,6 +12,7 @@
   export let md: GridSizeType = false;
   export let lg: GridSizeType = false;
   export let xl: GridSizeType = false;
+  export let order: number | false | null = false;
 
   let classGeneral: string = '';
   let styleGeneral: string = '';
@@ -21,7 +22,7 @@
   const unsubscribe = columnsStore.subscribe((value) => (localColumns = value));
 
   $: {
-    classGeneral = container ? 'container' : `col ${createClassSize()}`;
+    classGeneral = container ? 'containerSGR' : `colSGR ${createClassSize()}`;
 
     if (container) {
       styleGeneral = createGutter();
@@ -33,6 +34,10 @@
         styleGeneral += `--colFlexSGR:0;`;
       } else {
         styleGeneral = `--colFlexSGR:1;`;
+      }
+
+      if (order || order === 0) {
+        styleGeneral += `--orderSGR:${order};`;
       }
     }
   }
@@ -71,7 +76,7 @@
   const createGutter = () => {
     return gutter
       ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px`
-      : '--paddingSGR:0;--marginSGR:0';
+      : '--paddingSGR:0px;--marginSGR:0px';
   };
 
   onDestroy(() => unsubscribe());
@@ -82,7 +87,7 @@
 </div>
 
 <style>
-  .container {
+  .containerSGR {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -90,11 +95,12 @@
     margin: var(--marginSGR);
   }
 
-  .col {
+  .colSGR {
     position: relative;
     box-sizing: border-box;
     flex-grow: var(--colFlexSGR);
     padding: var(--paddingSGR);
+    order: var(--orderSGR);
   }
   .col-xs {
     flex-basis: var(--xsWidthSGR);

@@ -2438,6 +2438,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+highlight.js@11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.2.0.tgz#a7e3b8c1fdc4f0538b93b2dc2ddd53a40c6ab0f0"
+  integrity sha512-JOySjtOEcyG8s4MLR2MNbLUyaXqUunmSnL2kdV/KuGJOmHZuAR5xC54Ko7goAXBWNhf09Vy3B+U7vR62UZ/0iw==
+
 hosted-git-info@^2.1.4:
   version "2.8.9"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
@@ -4399,6 +4404,13 @@ svelte-dts@^0.3.4:
     commander "^7.1.0"
     recursive-readdir "^2.2.2"
     tmp "^0.2.1"
+
+svelte-highlight@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-highlight/-/svelte-highlight-3.2.0.tgz#6768cf5dd4e56940c14d6d22f18f26b1793b97b5"
+  integrity sha512-eI1zh+bqisIH/y07pLOrqhaaKna+dV3jB4yiFqAdAbUkgcSpaaGL4lSjxKqUnAd1/lZh7NN1AxurEUQ2GfK2UA==
+  dependencies:
+    highlight.js "11.2.0"
 
 svelte-jester@1.1.5:
   version "1.1.5"
