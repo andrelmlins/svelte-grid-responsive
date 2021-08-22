@@ -63,6 +63,7 @@ Component props:
 | md        | false   | number | Size in medium screen                   |
 | lg        | false   | number | Size in large screen                    |
 | xl        | false   | number | Size in extra large screen              |
+| order     | false   | number | Order the columns                       |
 
 ## NPM Statistics
 
