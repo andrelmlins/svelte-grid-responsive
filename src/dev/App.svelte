@@ -42,10 +42,6 @@
     padding: 24px;
   }
 
-  :global(.card) > div {
-    width: 100%;
-  }
-
   :global(.col) {
     width: 100%;
     padding: 8px;
