@@ -1,11 +1,11 @@
 <script lang="ts">
   import theme from 'svelte-highlight/src/styles/dracula.js';
-  import Grid from '../lib/Grid.svelte';
   import WithoutSizes from './examples/WithoutSizes.svelte';
   import SpecifyingSizes from './examples/SpecifyingSizes.svelte';
   import SettingColumnsCount from './examples/SettingColumnsCount.svelte';
   import ColumnOrdering from './examples/ColumnOrdering.svelte';
   import ChangingGutter from './examples/ChangingGutter.svelte';
+  import Offset from './examples/Offset.svelte';
 </script>
 
 <svelte:head>
@@ -21,6 +21,7 @@
   <SettingColumnsCount />
   <ColumnOrdering />
   <ChangingGutter />
+  <Offset />
 </main>
 
 <style>

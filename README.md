@@ -56,14 +56,19 @@ Component props:
 | Prop      | Default | Type   | Description                             |
 | --------- | ------- | ------ | --------------------------------------- |
 | container | false   | bool   | Defines whether the grid is a container |
-| gutter    | false   | number | Grid spacing in the container           |
+| gutter    | null    | number | Grid spacing in the container           |
 | columns   | 12      | number | Setting columns count in the container  |
-| xs        | false   | number | Size in extra small screen              |
-| sm        | false   | number | Size in small screen                    |
-| md        | false   | number | Size in medium screen                   |
-| lg        | false   | number | Size in large screen                    |
-| xl        | false   | number | Size in extra large screen              |
-| order     | false   | number | Order the columns                       |
+| order     | null    | number | Order the columns                       |
+| xs        | null    | number | Size in extra small screen              |
+| sm        | null    | number | Size in small screen                    |
+| md        | null    | number | Size in medium screen                   |
+| lg        | null    | number | Size in large screen                    |
+| xl        | null    | number | Size in extra large screen              |
+| xsOffset  | null    | number | Offset in extra small screen            |
+| smOffset  | null    | number | Offset in small screen                  |
+| mdOffset  | null    | number | Offset in medium screen                 |
+| lgOffset  | null    | number | Offset in large screen                  |
+| xlOffset  | null    | number | Offset in extra large screen            |
 
 ## NPM Statistics
 

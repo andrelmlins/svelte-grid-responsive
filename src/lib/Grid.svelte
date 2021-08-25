@@ -2,17 +2,22 @@
   import { onDestroy } from 'svelte';
   import { columnsStore } from './stores.js';
 
-  type GridSizeType = number | false | null;
+  type GridSizeType = number | null;
 
   export let container: boolean = false;
   export let columns: number = 12;
-  export let gutter: GridSizeType = false;
-  export let xs: GridSizeType = false;
-  export let sm: GridSizeType = false;
-  export let md: GridSizeType = false;
-  export let lg: GridSizeType = false;
-  export let xl: GridSizeType = false;
-  export let order: number | false | null = false;
+  export let gutter: GridSizeType = null;
+  export let order: number | null = null;
+  export let xs: GridSizeType = null;
+  export let sm: GridSizeType = null;
+  export let md: GridSizeType = null;
+  export let lg: GridSizeType = null;
+  export let xl: GridSizeType = null;
+  export let xsOffset: GridSizeType = null;
+  export let smOffset: GridSizeType = null;
+  export let mdOffset: GridSizeType = null;
+  export let lgOffset: GridSizeType = null;
+  export let xlOffset: GridSizeType = null;
 
   let classGeneral: string = '';
   let styleGeneral: string = '';
@@ -58,6 +63,12 @@
     newClass += lg ? 'col-lg ' : '';
     newClass += xl ? 'col-xl ' : '';
 
+    newClass += xsOffset ? 'colSGR-offset-xs ' : '';
+    newClass += smOffset ? 'colSGR-offset-sm ' : '';
+    newClass += mdOffset ? 'colSGR-offset-md ' : '';
+    newClass += lgOffset ? 'colSGR-offset-lg ' : '';
+    newClass += xlOffset ? 'colSGR-offset-xl ' : '';
+
     return newClass;
   };
 
@@ -69,6 +80,12 @@
     newStyle += md ? `--mdWidthSGR:${getValue(md)}; ` : '';
     newStyle += lg ? `--lgWidthSGR:${getValue(lg)}; ` : '';
     newStyle += xl ? `--xlWidthSGR:${getValue(xl)}; ` : '';
+
+    newStyle += xsOffset ? `--xsOffset:${getValue(xsOffset)}; ` : '';
+    newStyle += smOffset ? `--smOffset:${getValue(smOffset)}; ` : '';
+    newStyle += mdOffset ? `--mdOffset:${getValue(mdOffset)}; ` : '';
+    newStyle += lgOffset ? `--lgOffset:${getValue(lgOffset)}; ` : '';
+    newStyle += xlOffset ? `--xlOffset:${getValue(xlOffset)}; ` : '';
 
     return newStyle;
   };
@@ -102,6 +119,11 @@
     padding: var(--paddingSGR);
     order: var(--orderSGR);
   }
+
+  .colSGR-offset-xs {
+    margin-left: var(--xsOffset);
+  }
+
   .col-xs {
     flex-basis: var(--xsWidthSGR);
     max-width: var(--xsWidthSGR);
@@ -112,12 +134,18 @@
       flex-basis: var(--smWidthSGR);
       max-width: var(--smWidthSGR);
     }
+    .colSGR-offset-sm {
+      margin-left: var(--smOffset);
+    }
   }
 
   @media (min-width: 768px) {
     .col-md {
       flex-basis: var(--mdWidthSGR);
       max-width: var(--mdWidthSGR);
+    }
+    .colSGR-offset-md {
+      margin-left: var(--mdOffset);
     }
   }
 
@@ -126,11 +154,17 @@
       flex-basis: var(--lgWidthSGR);
       max-width: var(--lgWidthSGR);
     }
+    .colSGR-offset-lg {
+      margin-left: var(--lgOffset);
+    }
   }
 
   @media (min-width: 1200px) {
     .col-xl {
       max-width: var(--xlWidthSGR);
+    }
+    .colSGR-offset-xl {
+      margin-left: var(--xlOffset);
     }
   }
 </style>
