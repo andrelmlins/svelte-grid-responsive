@@ -2,22 +2,20 @@
   import { onDestroy } from 'svelte';
   import { columnsStore } from './stores.js';
 
-  type GridSizeType = number | null;
-
   export let container: boolean = false;
   export let columns: number = 12;
-  export let gutter: GridSizeType = null;
+  export let gutter: number | null = null;
   export let order: number | null = null;
-  export let xs: GridSizeType = null;
-  export let sm: GridSizeType = null;
-  export let md: GridSizeType = null;
-  export let lg: GridSizeType = null;
-  export let xl: GridSizeType = null;
-  export let xsOffset: GridSizeType = null;
-  export let smOffset: GridSizeType = null;
-  export let mdOffset: GridSizeType = null;
-  export let lgOffset: GridSizeType = null;
-  export let xlOffset: GridSizeType = null;
+  export let xs: number | null = null;
+  export let sm: number | null = null;
+  export let md: number | null = null;
+  export let lg: number | null = null;
+  export let xl: number | null = null;
+  export let xsOffset: number | null = null;
+  export let smOffset: number | null = null;
+  export let mdOffset: number | null = null;
+  export let lgOffset: number | null = null;
+  export let xlOffset: number | null = null;
 
   let classGeneral: string = '';
   let styleGeneral: string = '';
