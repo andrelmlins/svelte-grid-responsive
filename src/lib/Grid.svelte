@@ -43,6 +43,14 @@
         styleGeneral += `--orderSGR:${order};`;
       }
     }
+
+    if ($$restProps.style) {
+      styleGeneral += $$restProps.style;
+    }
+
+    if ($$restProps.class) {
+      classGeneral += ` ${$$restProps.class}`;
+    }
   }
 
   const getValue = (breakpoint: number) => {
@@ -90,14 +98,14 @@
 
   const createGutter = () => {
     return gutter
-      ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px`
-      : '--paddingSGR:0px;--marginSGR:0px';
+      ? `--paddingSGR:${gutter / 2}px;--marginSGR:-${gutter / 2}px;`
+      : '--paddingSGR:0px;--marginSGR:0px;';
   };
 
   onDestroy(() => unsubscribe());
 </script>
 
-<div style={styleGeneral} class={classGeneral} {...$$restProps}>
+<div {...$$restProps} style={styleGeneral} class={classGeneral}>
   <slot />
 </div>
 
