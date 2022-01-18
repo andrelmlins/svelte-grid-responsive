@@ -97,7 +97,7 @@
   onDestroy(() => unsubscribe());
 </script>
 
-<div style={styleGeneral} class={classGeneral}>
+<div style={styleGeneral} class={classGeneral} {...$$restProps}>
   <slot />
 </div>
 
