@@ -1,6 +1,6 @@
 {
   "name": "svelte-grid-responsive",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Responsive grid system based on Bootstrap for Svelte",
   "repository": "https://github.com/andrelmlins/svelte-grid-responsive",
   "author": "André Lins <andrelucas01@hotmail.com> (https://andrelmlins.github.io/)",
@@ -40,7 +40,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "sirv-cli": "^1.0.0",
     "svelte": "^3.32.0",
-    "svelte-dts": "^0.3.6",
+    "svelte-dts": "^0.3.7",
     "svelte-highlight": "^3.2.0",
     "svelte-jester": "1.1.5",
     "svelte-preprocess": "^4.7.4",

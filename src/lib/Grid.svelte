@@ -2,8 +2,8 @@
   import { onDestroy } from 'svelte';
   import { columnsStore } from './stores.js';
 
-  export let container: boolean = false;
-  export let columns: number = 12;
+  export let container: boolean | undefined = false;
+  export let columns: number | undefined = 12;
   export let gutter: number | null = null;
   export let order: number | null = null;
   export let xs: number | null = null;
@@ -29,7 +29,7 @@
 
     if (container) {
       styleGeneral = createGutter();
-      columnsStore.update(() => columns);
+      columnsStore.update(() => columns || 12);
     } else {
       styleGeneral = createStyleSize();
 
