@@ -28,7 +28,7 @@ npm install && npm run dev
 
 An example of how to use the library:
 
-```js
+```svelte
 <script>
   import Grid from "svelte-grid-responsive";
 </script>
